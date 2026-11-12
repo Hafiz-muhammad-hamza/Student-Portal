@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student Result Management System">
+    <title>Student Result Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Website Header -->
+    <header class="header">
+
+        <a href="#" class="logo">
+            Student Portal
+        </a>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#add-student">Add Student</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#students">Students</a></li>
+            </ul>
+        </nav>
+
+        <div class="theme-toggle">
+            <button type="button" id="theme-btn" aria-label="Toggle dark and light mode">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon">🌙</span>
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- Main Website Content -->
+    <main>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard">
+
+            <header class="section-header">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Welcome to Student Result Management System</p>
+                </div>
+                <div>
+                    <span id="date"></span>
+                </div>
+            </header>
+
+            <!-- Dashboard Cards -->
+            <section class="stats">
+
+                <article class="stat-card">
+                    <h2>Total Students</h2>
+                    <p id="total-students">0</p>
+                </article>
+
+                <article class="stat-card">
+                    <h2>Passed Students</h2>
+                    <p id="passed-students">0</p>
+                </article>
+
+                <article class="stat-card">
+                    <h2>Failed Students</h2>
+                    <p id="failed-students">0</p>
+                </article>
+
+                <article class="stat-card">
+                    <h2>Pass Percentage</h2>
+                    <p id="pass-percentage">0%</p>
+                </article>
+
+            </section>
+
+        </section>
+
+
+        <!-- Add Student Section -->
+        <section id="add-student" class="add-student">
+
+            <header class="section-header">
+                <h2>Add New Student</h2>
+                <p>Enter student information and subject marks</p>
+            </header>
+
+            <form id="student-form">
+
+                <!-- Student Information -->
+                <fieldset>
+
+                    <legend>Student Information</legend>
+
+                    <div class="form-group">
+                        <label for="student-name">Student Name</label>
+                        <input type="text" id="student-name" name="studentName" placeholder="Enter student name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="roll-number">Roll Number</label>
+                        <input type="text" id="roll-number" name="rollNumber" placeholder="Enter roll number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="student-class">Class</label>
+                        <input type="text" id="student-class" name="studentClass" placeholder="Enter class" required>
+                    </div>
+
+                </fieldset>
+
+
+                <!-- Subject Marks -->
+                <fieldset>
+
+                    <legend>Subject Marks</legend>
+
+                    <div class="form-group">
+                        <label for="english">English</label>
+                        <input type="number" id="english" name="english" placeholder="Enter marks" min="0" max="100"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="math">Mathematics</label>
+                        <input type="number" id="math" name="math" placeholder="Enter marks" min="0" max="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="computer">Computer</label>
+                        <input type="number" id="computer" name="computer" placeholder="Enter marks" min="0" max="100"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="physics">Physics</label>
+                        <input type="number" id="physics" name="physics" placeholder="Enter marks" min="0" max="100"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chemistry">Chemistry</label>
+                        <input type="number" id="chemistry" name="chemistry" placeholder="Enter marks" min="0" max="100"
+                            required>
+                    </div>
+
+                </fieldset>
+
+                <button type="submit" id="calculate-btn"> Calculate Result </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Result Section -->
+        <section id="results" class="results">
+
+            <header class="section-header">
+                <h2>Student Result</h2>
+                <p>Student result will appear here</p>
+            </header>
+
+            <article class="result-card">
+
+                <h3>Result Card</h3>
+
+                <div class="result-information">
+                    <p>Student Name: <output id="result-name">---</output></p>
+                    <p>Roll Number: <output id="result-roll">---</output></p>
+                    <p>Class: <output id="result-class">---</output></p>
+                    <p>Total Marks: <output id="total-marks">0 / 500</output></p>
+                    <p>Obtained Marks: <output id="obtained-marks">0</output></p>
+                    <p>Percentage: <output id="percentage">0%</output></p>
+                    <p>Grade: <output id="grade">---</output></p>
+                    <p>Result: <output id="final-result">---</output></p>
+                    <p>Date: <time id="result-date">---</time></p>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- All Students Section -->
+        <section id="students" class="students">
+
+            <header class="section-header">
+                <h2>All Students</h2>
+                <p>Complete student records</p>
+            </header>
+
+            <div class="table-container">
+
+                <table>
+
+                    <caption>Student Records</caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Roll Number</th>
+                            <th scope="col">Class</th>
+                            <th scope="col">Obtained Marks</th>
+                            <th scope="col">Percentage</th>
+                            <th scope="col">Grade</th>
+                            <th scope="col">Result</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="student-list">
+                        <tr>
+                            <td colspan="8">No student records available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Student Result Management System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
